@@ -16,6 +16,15 @@ This project simulates an autonomous navigation system where an agent finds the 
 * Screenshot capture
 
 ---
+## 🧠 How It Works
+
+The system simulates an autonomous agent navigating a grid environment.
+
+- The environment is defined in `simulation/environment.py`
+- Navigation logic is handled in `src/navigation`
+- Path planning algorithms are implemented in `src/path_planning`
+
+The agent moves from a start position to a goal while avoiding obstacles.
 
 ## 🛠 Tech Stack
 
