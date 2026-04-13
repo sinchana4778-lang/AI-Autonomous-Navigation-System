@@ -37,6 +37,7 @@ The system uses the A* (A-star) algorithm with heuristic optimization to find th
 
 ```bash
 pip install -r requirements.txt
+
 ## 🧠 How It Works!
 
 The system simulates an autonomous agent navigating a grid environment.
@@ -63,28 +64,6 @@ The agent moves from a start position to a goal while avoiding obstacles.
 * R → Reset
 * S → Save Screenshot
 
----
-
-## 📸 Output
-
-![Simulation](images/simulation.png)
-
----
-
-## 🎥 Demo Video
-
-(Add your video file or upload to Google Drive and paste link here)
-
----
-
-## 🚀 How to Run
-
-```bash
-pip install -r requirements.txt
-python main.py
-```
-
----
 
 ## 🧠 Concepts Used
 
