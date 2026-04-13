@@ -16,6 +16,27 @@ This project simulates an autonomous navigation system where an agent finds the 
 * Screenshot capture
 
 ---
+# 🚗 AI Autonomous Navigation System
+
+This project simulates an autonomous agent navigating a grid environment using the A* pathfinding algorithm.
+
+## 🔍 Features
+- A* pathfinding algorithm
+- Dynamic obstacle avoidance
+- Real-time visualization using Pygame
+- Grid-based simulation
+
+## 🧠 Algorithm
+The system uses the A* (A-star) algorithm with heuristic optimization to find the shortest path from start to goal.
+
+## 📸 Simulation Preview
+
+![Simulation](images/simulation.png)
+
+## ⚙️ Installation
+
+```bash
+pip install -r requirements.txt
 ## 🧠 How It Works!
 
 The system simulates an autonomous agent navigating a grid environment.

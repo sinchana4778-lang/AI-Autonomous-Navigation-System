@@ -1,5 +1,5 @@
-from simulation.environment import GridEnvironment
 from src.path_planning.astar import astar
+from simulation.environment import GridEnvironment
 import pygame
 
 def main():

@@ -1,40 +1,55 @@
 import heapq
 
 def astar(grid, start, goal):
-    rows, cols = len(grid), len(grid[0])
+    rows = len(grid)
+    cols = len(grid[0])
 
-    open_list = []
-    heapq.heappush(open_list, (0, start))
+    def heuristic(a, b):
+      return ((a[0] - b[0])**2 + (a[1] - b[1])**2) ** 0.5
+
+    open_set = []
+    heapq.heappush(open_set, (0, start))
 
     came_from = {}
     g_score = {start: 0}
 
-    def heuristic(a, b):
-        return abs(a[0]-b[0]) + abs(a[1]-b[1])
-
-    while open_list:
-        _, current = heapq.heappop(open_list)
+    while open_set:
+        _, current = heapq.heappop(open_set)
 
         if current == goal:
             path = []
             while current in came_from:
                 path.append(current)
                 current = came_from[current]
-            return path[::-1]
+            path.append(start)
+            path.reverse()
+            return path
 
-        for dx, dy in [(-1,0),(1,0),(0,-1),(0,1)]:
-            neighbor = (current[0]+dx, current[1]+dy)
+        r, c = current
 
-            if 0 <= neighbor[0] < rows and 0 <= neighbor[1] < cols:
-                if grid[neighbor[0]][neighbor[1]] == 1:
-                    continue
+        # 🔥 STRICT ROW, COL MOVEMENT
+        neighbors = [
+          (r, c + 1),   # right
+          (r + 1, c),   # down
+          (r, c - 1),   # left
+          (r - 1, c)    # up
+]
 
-                tentative_g = g_score[current] + 1
+        for nr, nc in neighbors:
+            # bounds
+            if not (0 <= nr < rows and 0 <= nc < cols):
+                continue
 
-                if neighbor not in g_score or tentative_g < g_score[neighbor]:
-                    g_score[neighbor] = tentative_g
-                    f = tentative_g + heuristic(neighbor, goal)
-                    heapq.heappush(open_list, (f, neighbor))
-                    came_from[neighbor] = current
+            # obstacle
+            if grid[nr][nc] == 1:
+                continue
+
+            temp_g = g_score[current] + 1
+
+            if (nr, nc) not in g_score or temp_g < g_score[(nr, nc)]:
+                g_score[(nr, nc)] = temp_g
+                f = temp_g + heuristic((nr, nc), goal)
+                heapq.heappush(open_set, (f, (nr, nc)))
+                came_from[(nr, nc)] = current
 
     return []
