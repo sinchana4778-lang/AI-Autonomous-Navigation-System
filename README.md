@@ -16,7 +16,7 @@ This project simulates an autonomous navigation system where an agent finds the 
 * Screenshot capture
 
 ---
-## 🧠 How It Works
+## 🧠 How It Works!
 
 The system simulates an autonomous agent navigating a grid environment.
 
@@ -46,7 +46,7 @@ The agent moves from a start position to a goal while avoiding obstacles.
 
 ## 📸 Output
 
-![Simulation](images/screenshot.png)
+![Simulation](images/simulation.png)
 
 ---
 
